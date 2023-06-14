@@ -16,6 +16,7 @@
 		BF3C52D92A39D5650069F09B /* MovieDBAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C52D82A39D5650069F09B /* MovieDBAppTests.swift */; };
 		BF3C52E32A39D5650069F09B /* MovieDBAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C52E22A39D5650069F09B /* MovieDBAppUITests.swift */; };
 		BF3C52E52A39D5650069F09B /* MovieDBAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C52E42A39D5650069F09B /* MovieDBAppUITestsLaunchTests.swift */; };
+		BF3C52F72A39D7640069F09B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C52F62A39D7640069F09B /* Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		BF3C52DE2A39D5650069F09B /* MovieDBAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDBAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3C52E22A39D5650069F09B /* MovieDBAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBAppUITests.swift; sourceTree = "<group>"; };
 		BF3C52E42A39D5650069F09B /* MovieDBAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BF3C52F62A39D7640069F09B /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		BF3C52C02A39D5630069F09B /* MovieDBApp */ = {
 			isa = PBXGroup;
 			children = (
+				BF3C52F52A39D7640069F09B /* Config */,
 				BF3C52C12A39D5630069F09B /* AppDelegate.swift */,
 				BF3C52C32A39D5630069F09B /* SceneDelegate.swift */,
 				BF3C52C52A39D5630069F09B /* ViewController.swift */,
@@ -125,6 +128,14 @@
 				BF3C52E42A39D5650069F09B /* MovieDBAppUITestsLaunchTests.swift */,
 			);
 			path = MovieDBAppUITests;
+			sourceTree = "<group>";
+		};
+		BF3C52F52A39D7640069F09B /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				BF3C52F62A39D7640069F09B /* Keys.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 				BF3C52C62A39D5630069F09B /* ViewController.swift in Sources */,
 				BF3C52C22A39D5630069F09B /* AppDelegate.swift in Sources */,
 				BF3C52C42A39D5630069F09B /* SceneDelegate.swift in Sources */,
+				BF3C52F72A39D7640069F09B /* Keys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
