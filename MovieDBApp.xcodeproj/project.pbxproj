@@ -17,6 +17,12 @@
 		BF3C52FB2A39D8550069F09B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C52FA2A39D8550069F09B /* AppCoordinator.swift */; };
 		BF3C53002A39D8910069F09B /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C52FF2A39D8910069F09B /* MovieDetailsViewController.swift */; };
 		BF3C53022A39D89D0069F09B /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C53012A39D89D0069F09B /* MovieListViewController.swift */; };
+		BF3C530D2A39DDE00069F09B /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C530C2A39DDE00069F09B /* DIContainer.swift */; };
+		BF41C4E12A39DF5800D9A01D /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = BF41C4E02A39DF5800D9A01D /* Networking */; };
+		BF41C4E32A39E59700D9A01D /* ApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C4E22A39E59700D9A01D /* ApiCalls.swift */; };
+		BF41C4E52A39E6EF00D9A01D /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C4E42A39E6EF00D9A01D /* Pagination.swift */; };
+		BF41C4E72A39E70700D9A01D /* EnvelopedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C4E62A39E70700D9A01D /* EnvelopedResponse.swift */; };
+		BF41C4E92A39E7FB00D9A01D /* MovieApiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C4E82A39E7FB00D9A01D /* MovieApiData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,12 @@
 		BF3C52FA2A39D8550069F09B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		BF3C52FF2A39D8910069F09B /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		BF3C53012A39D89D0069F09B /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
+		BF3C530A2A39DD360069F09B /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
+		BF3C530C2A39DDE00069F09B /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		BF41C4E22A39E59700D9A01D /* ApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCalls.swift; sourceTree = "<group>"; };
+		BF41C4E42A39E6EF00D9A01D /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
+		BF41C4E62A39E70700D9A01D /* EnvelopedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvelopedResponse.swift; sourceTree = "<group>"; };
+		BF41C4E82A39E7FB00D9A01D /* MovieApiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApiData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF41C4E12A39DF5800D9A01D /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +94,12 @@
 		BF3C52B52A39D5630069F09B = {
 			isa = PBXGroup;
 			children = (
+				BF3C53092A39DD360069F09B /* Packages */,
 				BF3C52C02A39D5630069F09B /* MovieDBApp */,
 				BF3C52D72A39D5650069F09B /* MovieDBAppTests */,
 				BF3C52E12A39D5650069F09B /* MovieDBAppUITests */,
 				BF3C52BF2A39D5630069F09B /* Products */,
+				BF41C4DF2A39DF5800D9A01D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,13 +116,14 @@
 		BF3C52C02A39D5630069F09B /* MovieDBApp */ = {
 			isa = PBXGroup;
 			children = (
-				BF3C52FC2A39D86B0069F09B /* UI */,
-				BF3C52F92A39D83C0069F09B /* Coordinators */,
+				BF3C530B2A39DDD30069F09B /* DI */,
+				BF3C52CF2A39D5640069F09B /* Info.plist */,
+				BF3C52CA2A39D5640069F09B /* Assets.xcassets */,
 				BF3C52F82A39D8350069F09B /* App */,
 				BF3C52F52A39D7640069F09B /* Config */,
-				BF3C52CA2A39D5640069F09B /* Assets.xcassets */,
-				BF3C52CC2A39D5640069F09B /* LaunchScreen.storyboard */,
-				BF3C52CF2A39D5640069F09B /* Info.plist */,
+				BF3C52F92A39D83C0069F09B /* Coordinators */,
+				BF3C53052A39DB070069F09B /* Infrastructure */,
+				BF3C52FC2A39D86B0069F09B /* UI */,
 			);
 			path = MovieDBApp;
 			sourceTree = "<group>";
@@ -140,6 +156,7 @@
 		BF3C52F82A39D8350069F09B /* App */ = {
 			isa = PBXGroup;
 			children = (
+				BF3C52CC2A39D5640069F09B /* LaunchScreen.storyboard */,
 				BF3C52C12A39D5630069F09B /* AppDelegate.swift */,
 			);
 			path = App;
@@ -178,6 +195,40 @@
 			path = MovieList;
 			sourceTree = "<group>";
 		};
+		BF3C53052A39DB070069F09B /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				BF41C4E22A39E59700D9A01D /* ApiCalls.swift */,
+				BF41C4E42A39E6EF00D9A01D /* Pagination.swift */,
+				BF41C4E62A39E70700D9A01D /* EnvelopedResponse.swift */,
+				BF41C4E82A39E7FB00D9A01D /* MovieApiData.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		BF3C53092A39DD360069F09B /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				BF3C530A2A39DD360069F09B /* Networking */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		BF3C530B2A39DDD30069F09B /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				BF3C530C2A39DDE00069F09B /* DIContainer.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		BF41C4DF2A39DF5800D9A01D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,6 +245,9 @@
 			dependencies = (
 			);
 			name = MovieDBApp;
+			packageProductDependencies = (
+				BF41C4E02A39DF5800D9A01D /* Networking */,
+			);
 			productName = MovieDBApp;
 			productReference = BF3C52BE2A39D5630069F09B /* MovieDBApp.app */;
 			productType = "com.apple.product-type.application";
@@ -308,11 +362,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF41C4E92A39E7FB00D9A01D /* MovieApiData.swift in Sources */,
+				BF41C4E32A39E59700D9A01D /* ApiCalls.swift in Sources */,
 				BF3C52C22A39D5630069F09B /* AppDelegate.swift in Sources */,
 				BF3C53002A39D8910069F09B /* MovieDetailsViewController.swift in Sources */,
 				BF3C52FB2A39D8550069F09B /* AppCoordinator.swift in Sources */,
 				BF3C53022A39D89D0069F09B /* MovieListViewController.swift in Sources */,
+				BF41C4E52A39E6EF00D9A01D /* Pagination.swift in Sources */,
+				BF3C530D2A39DDE00069F09B /* DIContainer.swift in Sources */,
 				BF3C52F72A39D7640069F09B /* Keys.swift in Sources */,
+				BF41C4E72A39E70700D9A01D /* EnvelopedResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +546,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,6 +573,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -638,6 +699,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BF41C4E02A39DF5800D9A01D /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BF3C52B62A39D5630069F09B /* Project object */;
 }
