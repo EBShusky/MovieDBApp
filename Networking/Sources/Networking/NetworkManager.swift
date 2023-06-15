@@ -42,8 +42,10 @@ public class NetworkManager: NetworkManagerProtocol {
                     }
 
                     if url.isSuccess {
+                        print("Success")
                         return data
                     }
+                    print("Error \(url.statusCode)")
                     throw ApiError.error
                 }
                 .decode(type: T.self,

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BF02FA882A3B57FF00461A56 /* MovieListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF02FA872A3B57FF00461A56 /* MovieListCollectionViewCell.swift */; };
+		BF02FA8A2A3B6A1400461A56 /* MovieListUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF02FA892A3B6A1400461A56 /* MovieListUseCaseTests.swift */; };
+		BF02FA8D2A3B6A5400461A56 /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF02FA8C2A3B6A5400461A56 /* NetworkManagerMock.swift */; };
 		BF3C52C22A39D5630069F09B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C52C12A39D5630069F09B /* AppDelegate.swift */; };
 		BF3C52CB2A39D5640069F09B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF3C52CA2A39D5640069F09B /* Assets.xcassets */; };
 		BF3C52CE2A39D5640069F09B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3C52CC2A39D5640069F09B /* LaunchScreen.storyboard */; };
@@ -30,7 +32,6 @@
 		BF41C4FD2A3A157400D9A01D /* StateRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C4FC2A3A157400D9A01D /* StateRepositoryTests.swift */; };
 		BF41C4FF2A3A167D00D9A01D /* StateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C4FE2A3A167D00D9A01D /* StateRepository.swift */; };
 		BF41C5012A3A1A0D00D9A01D /* CodableKeyedPersistentStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C5002A3A1A0D00D9A01D /* CodableKeyedPersistentStorageProtocol.swift */; };
-		BF41C5052A3A1E2E00D9A01D /* MovieListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C5042A3A1E2E00D9A01D /* MovieListTableViewCell.swift */; };
 		BF41C5072A3A1EEF00D9A01D /* MovieViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C5062A3A1EEF00D9A01D /* MovieViewData.swift */; };
 		BF41C50A2A3A1FCA00D9A01D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BF41C5092A3A1FCA00D9A01D /* Kingfisher */; };
 		BF6DB2C22A3A2DAF00B0BCF9 /* KingfisherAuthModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DB2C12A3A2DAF00B0BCF9 /* KingfisherAuthModifier.swift */; };
@@ -56,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		BF02FA872A3B57FF00461A56 /* MovieListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF02FA892A3B6A1400461A56 /* MovieListUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListUseCaseTests.swift; sourceTree = "<group>"; };
+		BF02FA8C2A3B6A5400461A56 /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
 		BF3C52BE2A39D5630069F09B /* MovieDBApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDBApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3C52C12A39D5630069F09B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF3C52CA2A39D5640069F09B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,7 +85,6 @@
 		BF41C4FC2A3A157400D9A01D /* StateRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRepositoryTests.swift; sourceTree = "<group>"; };
 		BF41C4FE2A3A167D00D9A01D /* StateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRepository.swift; sourceTree = "<group>"; };
 		BF41C5002A3A1A0D00D9A01D /* CodableKeyedPersistentStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableKeyedPersistentStorageProtocol.swift; sourceTree = "<group>"; };
-		BF41C5042A3A1E2E00D9A01D /* MovieListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewCell.swift; sourceTree = "<group>"; };
 		BF41C5062A3A1EEF00D9A01D /* MovieViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewData.swift; sourceTree = "<group>"; };
 		BF6DB2C12A3A2DAF00B0BCF9 /* KingfisherAuthModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingfisherAuthModifier.swift; sourceTree = "<group>"; };
 		BF6DB2C32A3A2E8E00B0BCF9 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -115,6 +117,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF02FA8B2A3B6A4600461A56 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				BF02FA8C2A3B6A5400461A56 /* NetworkManagerMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		BF3C52B52A39D5630069F09B = {
 			isa = PBXGroup;
 			children = (
@@ -156,8 +166,10 @@
 		BF3C52D72A39D5650069F09B /* MovieDBAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				BF02FA8B2A3B6A4600461A56 /* Mocks */,
 				BF3C52D82A39D5650069F09B /* MovieDBAppTests.swift */,
 				BF41C4FC2A3A157400D9A01D /* StateRepositoryTests.swift */,
+				BF02FA892A3B6A1400461A56 /* MovieListUseCaseTests.swift */,
 			);
 			path = MovieDBAppTests;
 			sourceTree = "<group>";
@@ -218,7 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				BF3C53012A39D89D0069F09B /* MovieListViewController.swift */,
-				BF41C5042A3A1E2E00D9A01D /* MovieListTableViewCell.swift */,
 				BF41C5062A3A1EEF00D9A01D /* MovieViewData.swift */,
 				BF02FA872A3B57FF00461A56 /* MovieListCollectionViewCell.swift */,
 			);
@@ -474,7 +485,6 @@
 				BF41C4E32A39E59700D9A01D /* ApiCalls.swift in Sources */,
 				BF41C4FF2A3A167D00D9A01D /* StateRepository.swift in Sources */,
 				BF3C52C22A39D5630069F09B /* AppDelegate.swift in Sources */,
-				BF41C5052A3A1E2E00D9A01D /* MovieListTableViewCell.swift in Sources */,
 				BF3C53002A39D8910069F09B /* MovieDetailsViewController.swift in Sources */,
 				BF3C52FB2A39D8550069F09B /* AppCoordinator.swift in Sources */,
 				BF41C5012A3A1A0D00D9A01D /* CodableKeyedPersistentStorageProtocol.swift in Sources */,
@@ -493,6 +503,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF41C4FD2A3A157400D9A01D /* StateRepositoryTests.swift in Sources */,
+				BF02FA8A2A3B6A1400461A56 /* MovieListUseCaseTests.swift in Sources */,
+				BF02FA8D2A3B6A5400461A56 /* NetworkManagerMock.swift in Sources */,
 				BF3C52D92A39D5650069F09B /* MovieDBAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

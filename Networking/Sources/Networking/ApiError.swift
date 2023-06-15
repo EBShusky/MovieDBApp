@@ -1,6 +1,6 @@
 import Foundation
 
-enum ApiError: Error {
+public enum ApiError: Error {
     case invalidUrl
     case invalidResponse
     case error

@@ -51,7 +51,7 @@ public class MovieListCollectionViewCell: UICollectionViewCell {
     public func setup(_ viewData: MovieViewData) {
         titleLabel.text = viewData.title
 
-        if let url = URL(string: viewData.backdropUrl) {
+        if let urlString = viewData.backdropUrl, let url = URL(string: urlString) {
             movieImageView.kf.setImage(with: url, options: [.requestModifier(KingfisherAuthModifier())])
             movieImageView.clipsToBounds = true
         }

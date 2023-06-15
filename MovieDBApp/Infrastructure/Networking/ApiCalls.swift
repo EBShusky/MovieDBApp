@@ -2,7 +2,7 @@ import Foundation
 import Networking
 
 public enum ApiCalls: NetworkRequestable {
-    case nowPlaying
+    case nowPlaying(page: Int)
     case search(query: String)
 
     public var method: Networking.NetworkMethod {
@@ -11,8 +11,8 @@ public enum ApiCalls: NetworkRequestable {
 
     public var path: String {
         switch self {
-        case .nowPlaying:
-            return "/movie/now_playing"
+        case .nowPlaying(let page):
+            return page == 0 ? "/movie/now_playing" : "/movie/now_playing?page=\(page)"
         case .search(let query):
             return "/search/movie?query=\(query)"
         }

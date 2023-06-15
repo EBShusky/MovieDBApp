@@ -20,15 +20,17 @@ public class MovieListUseCase: MovieListUseCaseProtocol {
 
     public func nextPage() {
         disposeBag.removeAll()
-        let request: AnyPublisher<EnvelopedResponse<[MovieApiData]>, Error> = networkManager.request(ApiCalls.nowPlaying)
+        let request: AnyPublisher<EnvelopedResponse<[MovieApiData]>, Error> = networkManager.request(ApiCalls.nowPlaying(page: movieListState.current.item.currentPage + 1))
 
-        request.handleEvents(receiveSubscription: { [weak movieListState] _ in
+        request.print("Lol").handleEvents(receiveSubscription: { [weak movieListState] _ in
                 if var state = movieListState?.current {
                     state.state = .loading
                     movieListState?.update(state)
                 }
             })
             .map({ response -> Pagination<Movie> in
+                print(response.page)
+                print(response.totalPages)
                 return Pagination(items: response.results.map { Movie(from: $0, isFavourite: false) },
                                   currentPage: response.page,
                                   pages: response.totalPages)
@@ -47,7 +49,7 @@ public class MovieListUseCase: MovieListUseCaseProtocol {
                 movieListState?.update(state)
             } receiveValue: { [weak movieListState] newState in
                 if var state = movieListState?.current {
-                    state.item = newState
+                    state.item.consume(newState)
                     movieListState?.update(state)
                 }
             }
@@ -56,7 +58,7 @@ public class MovieListUseCase: MovieListUseCaseProtocol {
 
     public func reload() {
         disposeBag.removeAll()
-        let request: AnyPublisher<EnvelopedResponse<[MovieApiData]>, Error> = networkManager.request(ApiCalls.nowPlaying)
+        let request: AnyPublisher<EnvelopedResponse<[MovieApiData]>, Error> = networkManager.request(ApiCalls.nowPlaying(page: 0))
 
         request.handleEvents(receiveSubscription: { [weak movieListState] _ in
                 if var state = movieListState?.current {

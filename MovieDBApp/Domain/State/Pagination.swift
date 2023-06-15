@@ -1,9 +1,11 @@
 public struct Pagination<T: Equatable>: Equatable {
-    let items: [T]
-    let currentPage: Int
-    let pages: Int
+    public var items: [T]
+    public var currentPage: Int
+    public var pages: Int
 
-//    func consume(_ page: Pagination<T>) {
-//        self
-//    }
+    public mutating func consume(_ page: Pagination<T>) {
+        self.items.append(contentsOf: page.items)
+        self.currentPage = page.currentPage
+        self.pages = page.pages
+    }
 }
