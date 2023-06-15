@@ -7,7 +7,7 @@ struct MovieApiData: Decodable {
     enum CodingKeys: String, CodingKey {
         case id
         case overview
-        case backdropUrl = "backdropPath"
+        case backdropUrl = "posterPath"
         case title
     }
 }

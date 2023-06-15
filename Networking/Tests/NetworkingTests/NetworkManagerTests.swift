@@ -26,7 +26,7 @@ final class NetworkManagerTests: XCTestCase {
             "text": "test"
         }
         """.data(using: .utf8)!
-        let mockResponse = URLResponse()
+        let mockResponse = HTTPURLResponse()
         urlSessionWrapper.dataTaskPublisherWrapperReturn = Just((data: mockData, response: mockResponse))
             .setFailureType(to: URLError.self)
             .eraseToAnyPublisher()
@@ -77,7 +77,7 @@ final class NetworkManagerTests: XCTestCase {
             "textasd": "test"
         }
         """.data(using: .utf8)!
-        let mockResponse = URLResponse()
+        let mockResponse = HTTPURLResponse()
         urlSessionWrapper.dataTaskPublisherWrapperReturn = Just((data: mockData, response: mockResponse))
             .setFailureType(to: URLError.self)
             .eraseToAnyPublisher()

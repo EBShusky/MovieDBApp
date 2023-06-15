@@ -12,9 +12,9 @@ public enum ApiCalls: NetworkRequestable {
     public var path: String {
         switch self {
         case .nowPlaying:
-            return "movie/now_playing"
+            return "/movie/now_playing"
         case .search(let query):
-            return "search/movie?query=\(query)"
+            return "/search/movie?query=\(query)"
         }
     }
 

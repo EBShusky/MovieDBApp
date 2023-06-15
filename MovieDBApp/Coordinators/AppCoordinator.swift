@@ -12,6 +12,7 @@ public protocol AppCoordinatorProtocol {
 
 public class AppCoordinator: AppCoordinatorProtocol {
 
+    private let diContainer = DIContainer()
     private var window: UIWindow?
     private weak var mainNavigationController: UINavigationController?
 
@@ -44,7 +45,8 @@ public class AppCoordinator: AppCoordinatorProtocol {
     }
 
     public func openMovieList() {
-        let viewController = MovieListViewController()
+        let viewController = MovieListViewController(movieListState: diContainer.movieListState,
+                                                     movieListUseCase: diContainer.movieListUseCase)
 
         if mainNavigationController?.viewControllers.isEmpty ?? false {
             mainNavigationController?.viewControllers = [viewController]

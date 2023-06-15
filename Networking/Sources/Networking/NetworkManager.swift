@@ -49,6 +49,7 @@ public class NetworkManager: NetworkManagerProtocol {
                 .decode(type: T.self,
                         decoder: jsonDecoder)
                 .map { $0 }
+                .receive(on: DispatchQueue.main)
                 .eraseToAnyPublisher()
         } catch {
             return Fail(error: error)
