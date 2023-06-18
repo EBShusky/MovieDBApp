@@ -3,6 +3,7 @@ import Combine
 
 public class MovieListViewController: UIViewController {
 
+    private let coordinator: AppCoordinatorProtocol
     private let state: AnyStateRepository<Loadable<Pagination<Movie>>>
     private let movieListUseCase: MovieListUseCaseProtocol
 
@@ -28,15 +29,17 @@ public class MovieListViewController: UIViewController {
         return collectionView
     }()
 
-    let activityIndicator: UIActivityIndicatorView = {
+    lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(frame: .zero)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.startAnimating()
         return activityIndicator
     }()
 
-    init(movieListState: AnyStateRepository<Loadable<Pagination<Movie>>>,
+    init(coordinator: AppCoordinatorProtocol,
+         movieListState: AnyStateRepository<Loadable<Pagination<Movie>>>,
          movieListUseCase: MovieListUseCaseProtocol) {
+        self.coordinator = coordinator
         self.state = movieListState
         self.movieListUseCase = movieListUseCase
         super.init(nibName: nil, bundle: nil)
@@ -64,6 +67,8 @@ public class MovieListViewController: UIViewController {
 
         tableViewSetup()
         movieListUseCase.reload()
+
+        
     }
 
     private func tableViewSetup() {
@@ -96,6 +101,11 @@ extension MovieListViewController: UICollectionViewDelegateFlowLayout {
         let availableWidth = width - spacing * (numberOfItemsPerRow + 1)
         let itemDimension = floor(availableWidth / numberOfItemsPerRow)
         return CGSize(width: itemDimension, height: itemDimension)
+    }
+
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = dataSource[indexPath.row]
+        coordinator.process(.details(movie: item))
     }
 }
 

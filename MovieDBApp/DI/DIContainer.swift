@@ -3,8 +3,12 @@ import Networking
 
 public class DIContainer {
     lazy var networkManager: NetworkManagerProtocol = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-mm-DD"
+
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+        jsonDecoder.dateDecodingStrategy = .formatted(dateFormatter)
 
         let networkManager = NetworkManager(urlSessionWrapper: URLSession.shared,
                                             baseUrl: Config.apiBaseUrl,

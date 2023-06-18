@@ -50,7 +50,7 @@ public class NetworkManager: NetworkManagerProtocol {
                 }
                 .decode(type: T.self,
                         decoder: jsonDecoder)
-                .map { $0 }
+                .print("Network: ")
                 .receive(on: DispatchQueue.main)
                 .eraseToAnyPublisher()
         } catch {

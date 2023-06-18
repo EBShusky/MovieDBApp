@@ -1,8 +1,12 @@
+import Foundation
+
 public struct Movie: Equatable {
     let id: Int
     let overview: String
     let backdropUrl: String?
     let title: String
+    let releaseDate: Date
+    let rating: Float
     let isFavourite: Bool
 }
 
@@ -13,6 +17,8 @@ extension Movie {
         self.id = apiData.id
         self.overview = apiData.overview
         self.title = apiData.title
+        self.rating = apiData.rating
+        self.releaseDate = apiData.releaseDate
         self.isFavourite = isFavourite
 
         if let apiPath = apiData.backdropUrl {

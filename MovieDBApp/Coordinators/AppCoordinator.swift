@@ -2,7 +2,7 @@ import UIKit
 
 public enum AppCoordinatorNavigationEvent {
     case list
-    case details
+    case details(movie: Movie)
 }
 
 public protocol AppCoordinatorProtocol {
@@ -35,17 +35,19 @@ public class AppCoordinator: AppCoordinatorProtocol {
         switch navigationEvent {
         case .list:
             openMovieList()
-        case .details:
-            openMovieDetails()
+        case .details(let movie):
+            openMovieDetails(movie)
         }
     }
 
-    public func openMovieDetails() {
-
+    public func openMovieDetails(_ movie: Movie) {
+        let viewController = MovieDetailsViewController(movie: movie)
+        mainNavigationController?.pushViewController(viewController, animated: true)
     }
 
     public func openMovieList() {
-        let viewController = MovieListViewController(movieListState: diContainer.movieListState,
+        let viewController = MovieListViewController(coordinator: self,
+                                                     movieListState: diContainer.movieListState,
                                                      movieListUseCase: diContainer.movieListUseCase)
 
         if mainNavigationController?.viewControllers.isEmpty ?? false {
