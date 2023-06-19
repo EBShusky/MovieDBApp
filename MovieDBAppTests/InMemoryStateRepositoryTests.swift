@@ -2,14 +2,14 @@ import XCTest
 import Combine
 @testable import MovieDBApp
 
-final class StateRepositoryTests: XCTestCase {
+final class InMemoryStateRepositoryTests: XCTestCase {
 
-    var sut: AnyStateRepository<String>!
+    var sut: InMemoryStateRepository<String>!
     var disposeBag: Set<AnyCancellable>!
 
     override func setUp() {
         super.setUp()
-        sut = AnyStateRepository(initialState: "Initial")
+        sut = InMemoryStateRepository(initialState: "Initial")
         disposeBag = Set()
     }
 

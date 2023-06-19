@@ -9,20 +9,33 @@ public protocol StateRepositoryProtocol where T: Equatable {
 }
 
 public class AnyStateRepository<T: Equatable>: StateRepositoryProtocol {
-    private let stateSubject: CurrentValueSubject<T, Never>
+    private let currentClosure: () -> (T)
+    private let publisherStateClosure: () -> (AnyPublisher<T, Never>)
+    private let updateClosure: (T) -> ()
+
     public var publisherState: AnyPublisher<T, Never> {
-        return stateSubject.removeDuplicates().eraseToAnyPublisher()
+        return publisherStateClosure()
     }
 
     public var current: T {
-        return stateSubject.value
+        return currentClosure()
     }
 
-    public init(initialState: T) {
-        self.stateSubject = CurrentValueSubject(initialState)
+    public init<Base: StateRepositoryProtocol>(repository: Base) where Base.T == T {
+        currentClosure = {
+            repository.current
+        }
+
+        publisherStateClosure = {
+            repository.publisherState
+        }
+
+        updateClosure = { state in
+            repository.update(state)
+        }
     }
 
     public func update(_ state: T) {
-        stateSubject.send(state)
+        updateClosure(state)
     }
 }

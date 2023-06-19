@@ -10,12 +10,15 @@ public protocol MovieListUseCaseProtocol {
 public class MovieListUseCase: MovieListUseCaseProtocol {
     private let networkManager: NetworkManagerProtocol
     private let movieListState: AnyStateRepository<Loadable<Pagination<Movie>>>
+    private let favouriteMovieState: AnyStateRepository<[Int]>
     private var disposeBag: Set<AnyCancellable> = Set()
 
     public init(networkManager: NetworkManagerProtocol,
-                movieListState: AnyStateRepository<Loadable<Pagination<Movie>>>) {
+                movieListState: AnyStateRepository<Loadable<Pagination<Movie>>>,
+                favouriteMovieState: AnyStateRepository<[Int]>) {
         self.networkManager = networkManager
         self.movieListState = movieListState
+        self.favouriteMovieState = favouriteMovieState
     }
 
     public func nextPage() {
@@ -28,10 +31,11 @@ public class MovieListUseCase: MovieListUseCaseProtocol {
                     movieListState?.update(state)
                 }
             })
-            .map({ response -> Pagination<Movie> in
+            .map({ [weak self] response -> Pagination<Movie> in
                 print(response.page)
                 print(response.totalPages)
-                return Pagination(items: response.results.map { Movie(from: $0, isFavourite: false) },
+                return Pagination(items: response.results.map { Movie(from: $0,
+                                                                      isFavourite: self?.checkIfFavourite(id: $0.id) ?? false) },
                                   currentPage: response.page,
                                   pages: response.totalPages)
             })
@@ -66,8 +70,9 @@ public class MovieListUseCase: MovieListUseCaseProtocol {
                     movieListState?.update(state)
                 }
             })
-            .map({ response -> Pagination<Movie> in
-                return Pagination(items: response.results.map { Movie(from: $0, isFavourite: false) },
+            .map({ [weak self] response -> Pagination<Movie> in
+                return Pagination(items: response.results.map { Movie(from: $0,
+                                                                      isFavourite: self?.checkIfFavourite(id: $0.id) ?? false) },
                                   currentPage: response.page,
                                   pages: response.totalPages)
             })
@@ -90,6 +95,10 @@ public class MovieListUseCase: MovieListUseCaseProtocol {
                 }
             }
             .store(in: &disposeBag)
+    }
+
+    func checkIfFavourite(id: Int) -> Bool {
+        return favouriteMovieState.current.contains(id)
     }
 }
 

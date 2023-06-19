@@ -5,6 +5,7 @@ import Combine
 public class MovieDetailsViewController: UIViewController {
 
     private let movieDetailsState: AnyStateRepository<Movie>
+    private let favouriteMovieUseCase: FavouriteMovieUseCaseProtocol
     private var disposeBag = Set<AnyCancellable>()
 
     lazy var posterImageView: UIImageView = {
@@ -45,8 +46,15 @@ public class MovieDetailsViewController: UIViewController {
         return label
     }()
 
-    public init(movieDetailsState: AnyStateRepository<Movie>) {
+    lazy var favouriteButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(image: UIImage(named: "star.circle"), style: .plain, target: self, action: #selector(tappedFavourite))
+        return button
+    }()
+
+    public init(movieDetailsState: AnyStateRepository<Movie>,
+                favouriteMovieUseCase: FavouriteMovieUseCaseProtocol) {
         self.movieDetailsState = movieDetailsState
+        self.favouriteMovieUseCase = favouriteMovieUseCase
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -64,6 +72,9 @@ public class MovieDetailsViewController: UIViewController {
         view.addSubview(descriptionLabel)
         view.addSubview(ratingLabel)
         view.addSubview(releaseDateLabel)
+
+        navigationItem.rightBarButtonItem = favouriteButton
+        navigationController?.navigationItem.rightBarButtonItem = favouriteButton
 
         NSLayoutConstraint.activate([
             posterImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -106,6 +117,18 @@ public class MovieDetailsViewController: UIViewController {
         if let urlString = viewData.backdropUrl, let url = URL(string: urlString) {
             posterImageView.kf.setImage(with: url, options: [.requestModifier(KingfisherAuthModifier())])
             posterImageView.clipsToBounds = true
+        }
+
+        favouriteButton.image = viewData.isFavourite ? UIImage(systemName: "star.circle") : UIImage(systemName: "star.circle.fill")
+    }
+
+    @objc
+    private func tappedFavourite() {
+        let movie = movieDetailsState.current
+        if movieDetailsState.current.isFavourite {
+            favouriteMovieUseCase.unfavouriteMovie(movie: movie)
+        } else {
+            favouriteMovieUseCase.favouriteMovie(movie: movie)
         }
     }
 

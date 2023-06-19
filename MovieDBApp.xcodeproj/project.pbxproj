@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF0071232A40E1E500A96A76 /* FavouriteMovieUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0071222A40E1E500A96A76 /* FavouriteMovieUseCase.swift */; };
+		BF0071252A40F3DE00A96A76 /* InMemoryStateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0071242A40F3DE00A96A76 /* InMemoryStateRepository.swift */; };
+		BF0071272A40F40000A96A76 /* UserDefaultsStateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0071262A40F40000A96A76 /* UserDefaultsStateRepository.swift */; };
 		BF02FA882A3B57FF00461A56 /* MovieListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF02FA872A3B57FF00461A56 /* MovieListCollectionViewCell.swift */; };
 		BF02FA8A2A3B6A1400461A56 /* MovieListUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF02FA892A3B6A1400461A56 /* MovieListUseCaseTests.swift */; };
 		BF02FA8D2A3B6A5400461A56 /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF02FA8C2A3B6A5400461A56 /* NetworkManagerMock.swift */; };
@@ -29,7 +32,7 @@
 		BF41C4EF2A39F01F00D9A01D /* MovieListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C4EE2A39F01F00D9A01D /* MovieListUseCase.swift */; };
 		BF41C4F22A39F05F00D9A01D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C4F12A39F05F00D9A01D /* Movie.swift */; };
 		BF41C4FB2A39F6EB00D9A01D /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C4FA2A39F6EB00D9A01D /* Loadable.swift */; };
-		BF41C4FD2A3A157400D9A01D /* StateRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C4FC2A3A157400D9A01D /* StateRepositoryTests.swift */; };
+		BF41C4FD2A3A157400D9A01D /* InMemoryStateRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C4FC2A3A157400D9A01D /* InMemoryStateRepositoryTests.swift */; };
 		BF41C4FF2A3A167D00D9A01D /* StateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C4FE2A3A167D00D9A01D /* StateRepository.swift */; };
 		BF41C5012A3A1A0D00D9A01D /* CodableKeyedPersistentStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C5002A3A1A0D00D9A01D /* CodableKeyedPersistentStorageProtocol.swift */; };
 		BF41C5072A3A1EEF00D9A01D /* MovieViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41C5062A3A1EEF00D9A01D /* MovieViewData.swift */; };
@@ -57,6 +60,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF0071222A40E1E500A96A76 /* FavouriteMovieUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteMovieUseCase.swift; sourceTree = "<group>"; };
+		BF0071242A40F3DE00A96A76 /* InMemoryStateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryStateRepository.swift; sourceTree = "<group>"; };
+		BF0071262A40F40000A96A76 /* UserDefaultsStateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStateRepository.swift; sourceTree = "<group>"; };
 		BF02FA872A3B57FF00461A56 /* MovieListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF02FA892A3B6A1400461A56 /* MovieListUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListUseCaseTests.swift; sourceTree = "<group>"; };
 		BF02FA8C2A3B6A5400461A56 /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
@@ -83,7 +89,7 @@
 		BF41C4EE2A39F01F00D9A01D /* MovieListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListUseCase.swift; sourceTree = "<group>"; };
 		BF41C4F12A39F05F00D9A01D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		BF41C4FA2A39F6EB00D9A01D /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
-		BF41C4FC2A3A157400D9A01D /* StateRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRepositoryTests.swift; sourceTree = "<group>"; };
+		BF41C4FC2A3A157400D9A01D /* InMemoryStateRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryStateRepositoryTests.swift; sourceTree = "<group>"; };
 		BF41C4FE2A3A167D00D9A01D /* StateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRepository.swift; sourceTree = "<group>"; };
 		BF41C5002A3A1A0D00D9A01D /* CodableKeyedPersistentStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableKeyedPersistentStorageProtocol.swift; sourceTree = "<group>"; };
 		BF41C5062A3A1EEF00D9A01D /* MovieViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewData.swift; sourceTree = "<group>"; };
@@ -170,7 +176,7 @@
 			children = (
 				BF02FA8B2A3B6A4600461A56 /* Mocks */,
 				BF3C52D82A39D5650069F09B /* MovieDBAppTests.swift */,
-				BF41C4FC2A3A157400D9A01D /* StateRepositoryTests.swift */,
+				BF41C4FC2A3A157400D9A01D /* InMemoryStateRepositoryTests.swift */,
 				BF02FA892A3B6A1400461A56 /* MovieListUseCaseTests.swift */,
 			);
 			path = MovieDBAppTests;
@@ -276,7 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				BF41C4F32A39F4EB00D9A01D /* State */,
-				BF41C4F02A39F04D00D9A01D /* Models */,
 				BF41C4ED2A39F00F00D9A01D /* MovieList */,
 				BF41C4EC2A39F00900D9A01D /* QueryMovie */,
 				BF41C4EB2A39F00100D9A01D /* FavouriteMovie */,
@@ -287,6 +292,7 @@
 		BF41C4EB2A39F00100D9A01D /* FavouriteMovie */ = {
 			isa = PBXGroup;
 			children = (
+				BF0071222A40E1E500A96A76 /* FavouriteMovieUseCase.swift */,
 			);
 			path = FavouriteMovie;
 			sourceTree = "<group>";
@@ -309,6 +315,8 @@
 		BF41C4F02A39F04D00D9A01D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BF41C4E42A39E6EF00D9A01D /* Pagination.swift */,
+				BF41C4FA2A39F6EB00D9A01D /* Loadable.swift */,
 				BF41C4F12A39F05F00D9A01D /* Movie.swift */,
 			);
 			path = Models;
@@ -317,9 +325,10 @@
 		BF41C4F32A39F4EB00D9A01D /* State */ = {
 			isa = PBXGroup;
 			children = (
-				BF41C4E42A39E6EF00D9A01D /* Pagination.swift */,
-				BF41C4FA2A39F6EB00D9A01D /* Loadable.swift */,
+				BF41C4F02A39F04D00D9A01D /* Models */,
 				BF41C4FE2A3A167D00D9A01D /* StateRepository.swift */,
+				BF0071242A40F3DE00A96A76 /* InMemoryStateRepository.swift */,
+				BF0071262A40F40000A96A76 /* UserDefaultsStateRepository.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -482,6 +491,7 @@
 				BF41C4E92A39E7FB00D9A01D /* MovieApiData.swift in Sources */,
 				BF02FA882A3B57FF00461A56 /* MovieListCollectionViewCell.swift in Sources */,
 				BF41C4FB2A39F6EB00D9A01D /* Loadable.swift in Sources */,
+				BF0071232A40E1E500A96A76 /* FavouriteMovieUseCase.swift in Sources */,
 				BF41C4EF2A39F01F00D9A01D /* MovieListUseCase.swift in Sources */,
 				BF41C4F22A39F05F00D9A01D /* Movie.swift in Sources */,
 				BF6DB2C42A3A2E8E00B0BCF9 /* Config.swift in Sources */,
@@ -493,6 +503,8 @@
 				BF41C5012A3A1A0D00D9A01D /* CodableKeyedPersistentStorageProtocol.swift in Sources */,
 				BF3C53022A39D89D0069F09B /* MovieListViewController.swift in Sources */,
 				BF41C5072A3A1EEF00D9A01D /* MovieViewData.swift in Sources */,
+				BF0071252A40F3DE00A96A76 /* InMemoryStateRepository.swift in Sources */,
+				BF0071272A40F40000A96A76 /* UserDefaultsStateRepository.swift in Sources */,
 				BF41C4E52A39E6EF00D9A01D /* Pagination.swift in Sources */,
 				BF3C530D2A39DDE00069F09B /* DIContainer.swift in Sources */,
 				BF8FD3832A3F077B00CC8536 /* MovieDetailsViewData.swift in Sources */,
@@ -506,7 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF41C4FD2A3A157400D9A01D /* StateRepositoryTests.swift in Sources */,
+				BF41C4FD2A3A157400D9A01D /* InMemoryStateRepositoryTests.swift in Sources */,
 				BF02FA8A2A3B6A1400461A56 /* MovieListUseCaseTests.swift in Sources */,
 				BF02FA8D2A3B6A5400461A56 /* NetworkManagerMock.swift in Sources */,
 				BF3C52D92A39D5650069F09B /* MovieDBAppTests.swift in Sources */,

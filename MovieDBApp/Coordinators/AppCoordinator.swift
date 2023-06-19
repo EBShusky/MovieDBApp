@@ -41,14 +41,16 @@ public class AppCoordinator: AppCoordinatorProtocol {
     }
 
     public func openMovieDetails(_ movie: Movie) {
-        let viewController = MovieDetailsViewController(movieDetailsState: diContainer.movieDetailsState(movie: movie))
+        let viewController = MovieDetailsViewController(movieDetailsState: diContainer.movieDetailsState(movie: movie),
+                                                        favouriteMovieUseCase: diContainer.favouriteUseCase())
         mainNavigationController?.pushViewController(viewController, animated: true)
     }
 
     public func openMovieList() {
         let viewController = MovieListViewController(coordinator: self,
                                                      movieListState: diContainer.movieListState,
-                                                     movieListUseCase: diContainer.movieListUseCase)
+                                                     movieListUseCase: diContainer.movieListUseCase,
+                                                     favouriteMovieUseCase: diContainer.favouriteUseCase())
 
         if mainNavigationController?.viewControllers.isEmpty ?? false {
             mainNavigationController?.viewControllers = [viewController]

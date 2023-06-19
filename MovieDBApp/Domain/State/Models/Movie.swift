@@ -7,7 +7,7 @@ public struct Movie: Equatable {
     let title: String
     let releaseDate: Date
     let rating: Float
-    let isFavourite: Bool
+    var isFavourite: Bool
 }
 
 extension Movie {

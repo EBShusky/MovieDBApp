@@ -6,6 +6,7 @@ public class MovieListViewController: UIViewController {
     private let coordinator: AppCoordinatorProtocol
     private let state: AnyStateRepository<Loadable<Pagination<Movie>>>
     private let movieListUseCase: MovieListUseCaseProtocol
+    private let favouriteMovieUseCase: FavouriteMovieUseCaseProtocol
 
     var dataSource: [MovieViewData] {
         return state.current.item.items
@@ -38,10 +39,12 @@ public class MovieListViewController: UIViewController {
 
     init(coordinator: AppCoordinatorProtocol,
          movieListState: AnyStateRepository<Loadable<Pagination<Movie>>>,
-         movieListUseCase: MovieListUseCaseProtocol) {
+         movieListUseCase: MovieListUseCaseProtocol,
+         favouriteMovieUseCase: FavouriteMovieUseCaseProtocol) {
         self.coordinator = coordinator
         self.state = movieListState
         self.movieListUseCase = movieListUseCase
+        self.favouriteMovieUseCase = favouriteMovieUseCase
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -66,9 +69,7 @@ public class MovieListViewController: UIViewController {
         .store(in: &disposeBag)
 
         tableViewSetup()
-        movieListUseCase.reload()
-
-        
+        movieListUseCase.reload()        
     }
 
     private func tableViewSetup() {
@@ -119,7 +120,15 @@ extension MovieListViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
-        cell.setup(dataSource[indexPath.row])
+        let data = dataSource[indexPath.row]
+        cell.setup(data)
+        cell.favouriteTappedClosure = { [weak self] in
+            if data.isFavourite {
+                self?.favouriteMovieUseCase.unfavouriteMovie(movie: data)
+            } else {
+                self?.favouriteMovieUseCase.favouriteMovie(movie: data)
+            }
+        }
         return cell
     }
 

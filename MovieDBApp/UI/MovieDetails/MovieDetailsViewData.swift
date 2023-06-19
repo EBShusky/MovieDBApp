@@ -8,6 +8,7 @@ public struct MovieDetailsViewData {
     public let rating: String
     public let releaseDateString: String
     public let backdropUrl: String?
+    public let isFavourite: Bool
 
     init(movie: Movie) {
         self.movie = movie
@@ -16,6 +17,7 @@ public struct MovieDetailsViewData {
         self.description = movie.overview
         self.rating = "\(movie.rating)"
         self.backdropUrl = movie.backdropUrl
+        self.isFavourite = movie.isFavourite
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-mm-DD"
