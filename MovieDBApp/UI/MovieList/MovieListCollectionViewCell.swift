@@ -32,6 +32,7 @@ public class MovieListCollectionViewCell: UICollectionViewCell {
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         view.transform = CGAffineTransform(rotationAngle: CGFloat.pi/4)
+        view.clipsToBounds = true
         return view
     }()
 
@@ -61,6 +62,9 @@ public class MovieListCollectionViewCell: UICollectionViewCell {
             favouriteButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
             favouriteButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -8),
         ])
+
+        clipsToBounds = true
+        backgroundColor = .white
     }
 
     public override func prepareForReuse() {
@@ -76,7 +80,7 @@ public class MovieListCollectionViewCell: UICollectionViewCell {
             movieImageView.clipsToBounds = true
         }
 
-        favouriteButton.setImage(viewData.isFavourite ? UIImage(systemName: "star.circle") : UIImage(systemName: "star.circle.fill"),
+        favouriteButton.setImage(viewData.isFavourite ? UIImage(systemName: "star.circle.fill") : UIImage(systemName: "star.circle"),
                                  for: .normal)
     }
 

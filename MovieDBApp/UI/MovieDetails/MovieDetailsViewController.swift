@@ -77,7 +77,7 @@ public class MovieDetailsViewController: UIViewController {
         navigationController?.navigationItem.rightBarButtonItem = favouriteButton
 
         NSLayoutConstraint.activate([
-            posterImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            posterImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             posterImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             posterImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
             posterImageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75),
@@ -91,7 +91,7 @@ public class MovieDetailsViewController: UIViewController {
             descriptionLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
             descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: 16),
 
-            ratingLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            ratingLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             ratingLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
 
             releaseDateLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
@@ -119,7 +119,7 @@ public class MovieDetailsViewController: UIViewController {
             posterImageView.clipsToBounds = true
         }
 
-        favouriteButton.image = viewData.isFavourite ? UIImage(systemName: "star.circle") : UIImage(systemName: "star.circle.fill")
+        favouriteButton.image = viewData.isFavourite ? UIImage(systemName: "star.circle.fill") : UIImage(systemName: "star.circle")
     }
 
     @objc

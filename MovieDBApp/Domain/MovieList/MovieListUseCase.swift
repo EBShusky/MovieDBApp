@@ -25,15 +25,13 @@ public class MovieListUseCase: MovieListUseCaseProtocol {
         disposeBag.removeAll()
         let request: AnyPublisher<EnvelopedResponse<[MovieApiData]>, Error> = networkManager.request(ApiCalls.nowPlaying(page: movieListState.current.item.currentPage + 1))
 
-        request.print("Lol").handleEvents(receiveSubscription: { [weak movieListState] _ in
+        request.handleEvents(receiveSubscription: { [weak movieListState] _ in
                 if var state = movieListState?.current {
                     state.state = .loading
                     movieListState?.update(state)
                 }
             })
             .map({ [weak self] response -> Pagination<Movie> in
-                print(response.page)
-                print(response.totalPages)
                 return Pagination(items: response.results.map { Movie(from: $0,
                                                                       isFavourite: self?.checkIfFavourite(id: $0.id) ?? false) },
                                   currentPage: response.page,

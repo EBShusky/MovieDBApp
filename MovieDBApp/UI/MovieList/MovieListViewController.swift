@@ -27,6 +27,7 @@ public class MovieListViewController: UIViewController {
                                               collectionViewLayout: flowLayout)
         collectionView.register(MovieListCollectionViewCell.self, forCellWithReuseIdentifier: MovieListCollectionViewCell.identifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .white
         return collectionView
     }()
 
@@ -63,7 +64,6 @@ public class MovieListViewController: UIViewController {
             .map(\.item.items)
             .removeDuplicates()
             .sink(receiveCompletion: { _ in }) { [weak self] state in
-                print("lol")
                 self?.collectionView.reloadData()
         }
         .store(in: &disposeBag)
