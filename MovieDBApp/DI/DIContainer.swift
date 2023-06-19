@@ -1,6 +1,7 @@
 import Foundation
 import Networking
 
+// Could be migrated to some more fancy solution like Swinject
 public class DIContainer {
     lazy var networkManager: NetworkManagerProtocol = {
         let dateFormatter = DateFormatter()
@@ -23,6 +24,10 @@ public class DIContainer {
                                                                                                                                      currentPage: 0,
                                                                                                                                      pages: 0),
                                                                                                                     state: .initial))
+
+    func movieDetailsState(movie: Movie) -> AnyStateRepository<Movie> {
+        return AnyStateRepository(initialState: movie)
+    }
 
     lazy var movieListUseCase: MovieListUseCaseProtocol = {
         return MovieListUseCase(networkManager: networkManager,

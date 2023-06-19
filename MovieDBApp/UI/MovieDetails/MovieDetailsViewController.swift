@@ -1,9 +1,11 @@
 import UIKit
 import Kingfisher
+import Combine
 
 public class MovieDetailsViewController: UIViewController {
 
-    let movieViewData: MovieDetailsViewData
+    private let movieDetailsState: AnyStateRepository<Movie>
+    private var disposeBag = Set<AnyCancellable>()
 
     lazy var posterImageView: UIImageView = {
         let imageView = UIImageView()
@@ -43,8 +45,8 @@ public class MovieDetailsViewController: UIViewController {
         return label
     }()
 
-    public init(movie: Movie) {
-        self.movieViewData = MovieDetailsViewData(movie: movie)
+    public init(movieDetailsState: AnyStateRepository<Movie>) {
+        self.movieDetailsState = movieDetailsState
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -53,7 +55,7 @@ public class MovieDetailsViewController: UIViewController {
         view.backgroundColor = .white
 
         setupView()
-        setupViewData()
+        setupStateUpdates()
     }
 
     private func setupView() {
@@ -86,17 +88,25 @@ public class MovieDetailsViewController: UIViewController {
         ])
     }
 
-    private func setupViewData() {
-        self.title = movieViewData.title
-        descriptionLabel.text = movieViewData.description
-        ratingLabel.text = movieViewData.rating
-        releaseDateLabel.text = movieViewData.releaseDateString
+    private func setupStateUpdates() {
+        movieDetailsState.publisherState
+            .sink(receiveCompletion: { _ in },
+                  receiveValue: { [weak self] state in
+                self?.updateView(viewData: MovieDetailsViewData(movie: state))
+            })
+            .store(in: &disposeBag)
+    }
 
-        if let urlString = movieViewData.backdropUrl, let url = URL(string: urlString) {
+    private func updateView(viewData: MovieDetailsViewData) {
+        self.title = viewData.title
+        descriptionLabel.text = viewData.description
+        ratingLabel.text = viewData.rating
+        releaseDateLabel.text = viewData.releaseDateString
+
+        if let urlString = viewData.backdropUrl, let url = URL(string: urlString) {
             posterImageView.kf.setImage(with: url, options: [.requestModifier(KingfisherAuthModifier())])
             posterImageView.clipsToBounds = true
         }
-
     }
 
     required init?(coder: NSCoder) {

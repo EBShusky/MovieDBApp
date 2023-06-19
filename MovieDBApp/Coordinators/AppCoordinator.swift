@@ -41,7 +41,7 @@ public class AppCoordinator: AppCoordinatorProtocol {
     }
 
     public func openMovieDetails(_ movie: Movie) {
-        let viewController = MovieDetailsViewController(movie: movie)
+        let viewController = MovieDetailsViewController(movieDetailsState: diContainer.movieDetailsState(movie: movie))
         mainNavigationController?.pushViewController(viewController, animated: true)
     }
 
